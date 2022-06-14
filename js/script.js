@@ -39,6 +39,41 @@ console.log(gameMaxRange);
 // 2- Generare 16 numeri random (bombe) 
 // nello stesso range delle tre difficoltà:
 // gameMinRange(1)-gameMaxRange(100 o 81 o 49)
+const bombs = bombsGenerator(16, 1, gameMaxRange);
+console.log(bombs);
+
+// ----------
+// FUNCTIONS
+// ----------
+
+// Generare un array di tot numero di elementi random 
+// Inputs: 
+    // numberOfArrayElements -> numero di elementi dell'array
+    // rangeMin -> range minimo dei numeri random generati
+    // rangeMax -> range massimo dei numeri random generati
+// Output:
+    // return -> array di elementi random con lunghezza numberOfArrayElements
+function bombsGenerator(numberOfArrayElements, rangeMin, rangeMax) {
+    // Creazione array vuoto
+    const randomNumbersArray = [];
+    // Finchè la lunghezza dell'array è inferiore al numero di elementi dell'arrey
+    while(randomNumbersArray.length < numberOfArrayElements) {
+        // Genero un numero random da rangeMin a rangeMax
+        const randomNumber = getRndInteger(rangeMin, rangeMax);
+        // Inserisco il numero nell'array solo se esso non è già presente 
+        if(!randomNumbersArray.includes(randomNumber)) {
+            randomNumbersArray.push(randomNumber);
+        }
+    }
+
+    return randomNumbersArray;
+}
+
+// Funzione per generare un numero random
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
+
 // 3 - Numero max di tentativi possibili per ogni difficoltà scelta: gameMaxRange - bombe(16)
 
 // FASE LOGICA:

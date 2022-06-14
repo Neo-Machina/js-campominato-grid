@@ -15,6 +15,27 @@
     // se si sceglie 1, il range di numeri possibili del gioco è 1-100
     // se si sceglie 2, il range di numeri possibili del gioco è 1-81
     // se si sceglie 3, il range di numeri possibili del gioco è 1-49
+let userDifficultyLevel = prompt('Scegli il livello di difficoltà: 1, 2 o 3');
+console.log(userDifficultyLevel);
+
+while(userDifficultyLevel !== '1' || userDifficultyLevel !== '2' || userDifficultyLevel !== '3') {
+    userDifficultyLevel = prompt('Scegli il livello di difficoltà: 1, 2 o 3');
+}
+console.log(userDifficultyLevel);
+
+let gameMaxRange;
+switch(userDifficultyLevel) {
+    case '1':
+        gameMaxRange = 100;
+        break;
+    case '2':
+        gameMaxRange = 81;
+        break;
+    case '3':
+        gameMaxRange = 49;
+        break;
+}
+console.log(gameMaxRange);
 // 2- Generare 16 numeri random (bombe) 
 // nello stesso range delle tre difficoltà:
 // gameMinRange(1)-gameMaxRange(100 o 81 o 49)

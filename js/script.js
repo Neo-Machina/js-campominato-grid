@@ -8,3 +8,23 @@
 // se il numero è presente nella lista dei numeri generati, abbiamo calpestato una bomba, il gioco finisce con un messaggio di errore
 // Altrimenti il gioco va avanti a meno di aver raggiunto il numero massimo di tentativi possibili. In questo caso il gioco finisce con un messaggio di vittoria.
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha scelto un numero che non era una bomba.
+
+// ANALISI DELL'ESERCIZIO
+// FASE PREPARATORIA:
+// 1 - Chiediere un livello di difficoltà (1,2,3) all'utente, con un prompt 
+    // se si sceglie 1, il range di numeri possibili del gioco è 1-100
+    // se si sceglie 2, il range di numeri possibili del gioco è 1-81
+    // se si sceglie 3, il range di numeri possibili del gioco è 1-49
+// 2- Generare 16 numeri random (bombe) 
+// nello stesso range delle tre difficoltà:
+// gameMinNumbers(1)-gameMaxNumbers(100 o 81 o 49)
+// 3 - Numero max di tentativi possibili per ogni difficoltà scelta: gameMaxNumbers - bombe(16)
+
+// FASE LOGICA:
+// Finchè il gioco non è concluso 
+    // L'utente inserisce un numero alla volta, tramite prompt
+    // Se il numero è una bomba -> alert('Hai perso :(' + punteggio utente)
+    // Altrimenti se il numero non è una bomba
+        // Si inseriscono i numeri generati corretti in un array di numeri indovinati, soltanto se il numero non è già presente
+        // Se l'utente ha raggiunto il numero max di tentativi possibili (lunghezza array di numeri indovinati === Numero max di tentativi) -> alert('Hai vinto!!! + punteggio utente')
+        

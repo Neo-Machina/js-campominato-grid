@@ -18,7 +18,7 @@
 let userDifficultyLevel = prompt('Scegli il livello di difficoltà: 1, 2 o 3');
 console.log(userDifficultyLevel);
 
-while(userDifficultyLevel !== '1' || userDifficultyLevel !== '2' || userDifficultyLevel !== '3') {
+while(userDifficultyLevel !== '1' && userDifficultyLevel !== '2' && userDifficultyLevel !== '3') {
     userDifficultyLevel = prompt('Scegli il livello di difficoltà: 1, 2 o 3');
 }
 console.log(userDifficultyLevel);

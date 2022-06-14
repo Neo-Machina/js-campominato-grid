@@ -17,8 +17,8 @@
     // se si sceglie 3, il range di numeri possibili del gioco è 1-49
 // 2- Generare 16 numeri random (bombe) 
 // nello stesso range delle tre difficoltà:
-// gameMinNumbers(1)-gameMaxNumbers(100 o 81 o 49)
-// 3 - Numero max di tentativi possibili per ogni difficoltà scelta: gameMaxNumbers - bombe(16)
+// gameMinRange(1)-gameMaxRange(100 o 81 o 49)
+// 3 - Numero max di tentativi possibili per ogni difficoltà scelta: gameMaxRange - bombe(16)
 
 // FASE LOGICA:
 // Finchè il gioco non è concluso 

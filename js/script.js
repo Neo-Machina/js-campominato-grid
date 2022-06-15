@@ -63,6 +63,7 @@ function bombsGenerator(numberOfArrayElements, rangeMin, rangeMax) {
         if(!randomNumbersArray.includes(randomNumber)) {
             randomNumbersArray.push(randomNumber);
         }
+
     }
 
     return randomNumbersArray;
@@ -71,17 +72,37 @@ function bombsGenerator(numberOfArrayElements, rangeMin, rangeMax) {
 // Funzione per generare un numero random
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }
+}
 
 // 3 - Numero max di tentativi possibili per ogni difficoltà scelta: gameMaxRange - bombe(16)
 const maxAttemptsNumbers = gameMaxRange - bombsNumber;
 console.log(maxAttemptsNumbers);
 
+// Array numeri indovinati     
+const guessedArrayNumbers = []; 
+
 // FASE LOGICA:
 // Finchè il gioco non è concluso 
+let gameContinues = true;
+while(gameContinues === true) {
     // L'utente inserisce un numero alla volta, tramite prompt
-    // Se il numero è una bomba -> alert('Hai perso :(' + punteggio utente)
+     const userNumber = parseInt(prompt('Dimmi un numero'));
+
+    // Se il numero è una bomba -> il gioco finisce + alert('Hai perso :(' + punteggio utente)
+    if(bombs.includes(userNumber)) {
+        gameContinues = false;
+        alert(`Hai perso :( Il tuo numero di tentativi giusti è: ${guessedArrayNumbers.length}`);
     // Altrimenti se il numero non è una bomba
+    } else {
         // Si inseriscono i numeri generati corretti in un array di numeri indovinati, soltanto se il numero non è già presente
-        // Se l'utente ha raggiunto il numero max di tentativi possibili (lunghezza array di numeri indovinati === Numero max di tentativi) -> alert('Hai vinto!!! + punteggio utente')
-        
+        if(!guessedArrayNumbers.includes(userNumber)) {
+            guessedArrayNumbers.push(userNumber);
+        }
+        // Se l'utente ha raggiunto il numero max di tentativi possibili (lunghezza array di numeri indovinati === Numero max di tentativi) -> il gioco finisce + alert('Hai vinto!!! + punteggio utente')
+        if(guessedArrayNumbers.length === maxAttemptsNumbers) {
+            gameContinues = false;
+            alert(`Hai vinto !!!`);
+        }
+    }
+}
+  
